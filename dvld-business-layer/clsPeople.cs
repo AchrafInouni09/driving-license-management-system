@@ -1,0 +1,112 @@
+﻿using dvld_data_access_layer;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace dvld_business_layer
+{
+    public class clsPeople
+    {
+        private bool _Add_New_Person()
+        {
+            this._Id = clsPeopleDataAccess.Add_New_Person(this._FirstName, this._LastName, this._SecondName, this._ThirdName , this._Email, this._Phone,
+                this._Address, this._CountryId, this._DateOfBirth, this._ImagePath, this._NationalNo, this._gendor);
+            return (this._Id != -1);
+        }
+
+
+        public clsPeople()
+        {
+            _FirstName = "";
+            _LastName = "";
+            _SecondName = "";
+            _ThirdName = "";
+            _Id = -1;
+            _Email = "";
+            _CountryId = -1;
+            _Address = "";
+            _ImagePath = "";
+            _mode = enMode.enAdd;
+        }
+
+        public clsPeople(int Id, string FirstName, string LastName, string SecondName, string ThirdName, string Phone, string Email, DateTime DateOfBirth, int gendor, string Address, string ImagePath, int CountryId)
+        {
+            _FirstName = FirstName;
+            _LastName = LastName;
+            _SecondName = SecondName;
+            _ThirdName = ThirdName;
+            _Id = Id;
+            _Email = Email;
+            _CountryId = CountryId;
+            _Address = Address;
+            _ImagePath = ImagePath;
+            _mode = enMode.enUpdate;
+        }
+
+        public static DataTable GetAllPeoples()
+        {
+            return (clsPeopleDataAccess.GetAllPeoples());
+        }
+
+        enum enMode { enAdd = 1, enUpdate = 2 };
+        public int _Id { get; set; }
+        public string _FirstName { get; set; }
+        public string _LastName { get; set; }
+
+        public string _SecondName { get; set; }
+        public string _ThirdName { get; set; }
+        public string _Email { get; set; }
+        public string _Phone { get; set; }
+        public DateTime _DateOfBirth { get; set; }
+
+        public int _CountryId { set; get; }
+
+        public string _Address { get; set; }
+
+        public string _ImagePath { set; get; }
+
+        public string _NationalNo { get; set; }
+        public int      _gendor { get; set; }
+
+        private enMode _mode;
+        public static bool IsCinExist(string cin)
+        {
+            return (clsPeopleDataAccess.IsCinExist(cin));
+        }
+        public bool Save ()
+        {
+
+            switch (_mode)
+            {
+                case enMode.enAdd:
+                {
+                        if (_Add_New_Person())
+                        {
+                            return (true);
+                        }
+                        else
+                            return (false);
+                }
+                   
+                case enMode.enUpdate:
+                {
+                        Console.WriteLine("update not implemented yet");
+                        return (false);
+                }
+                    
+            }
+
+            return (false);
+        }
+
+
+        public static DataTable getSchemableColumn()
+        {
+            return (clsPeopleDataAccess.GetSchemableColumn());
+        }
+    }
+}
+

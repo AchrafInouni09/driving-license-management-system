@@ -1,0 +1,9 @@
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\bin\Debug\dvld-data-access-layer.dll
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\bin\Debug\dvld-data-access-layer.pdb
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\obj\Debug\dvld-data-access-layer.csproj.AssemblyReference.cache
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\obj\Debug\dvld-data-access-layer.csproj.CoreCompileInputs.cache
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\obj\Debug\dvld-data-access-layer.dll
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\obj\Debug\dvld-data-access-layer.pdb
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\bin\Debug\dvld-database_access_parameter.dll
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\bin\Debug\dvld-database_access_parameter.pdb
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-data-access-layer\obj\Debug\dvld-dat.2433163F.Up2Date

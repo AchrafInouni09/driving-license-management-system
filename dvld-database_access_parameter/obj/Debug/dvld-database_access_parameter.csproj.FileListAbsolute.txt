@@ -1,0 +1,6 @@
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-database_access_parameter\bin\Debug\dvld-database_access_parameter.dll
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-database_access_parameter\bin\Debug\dvld-database_access_parameter.pdb
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-database_access_parameter\obj\Debug\dvld-database_access_parameter.csproj.AssemblyReference.cache
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-database_access_parameter\obj\Debug\dvld-database_access_parameter.csproj.CoreCompileInputs.cache
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-database_access_parameter\obj\Debug\dvld-database_access_parameter.dll
+C:\Users\Oxfam\source\repos\driving-license-management-system\dvld-database_access_parameter\obj\Debug\dvld-database_access_parameter.pdb
