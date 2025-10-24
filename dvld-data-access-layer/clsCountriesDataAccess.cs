@@ -109,8 +109,7 @@ namespace dvld_data_access_layer
                 if (reader.Read())
                 {
                     isfound = true;
-                    CountryId = (int)reader["CountryID"];
-
+                    CountryName = (string)reader["CountryName"];
                 }
 
                 reader.Close();

@@ -93,7 +93,7 @@ namespace dvld_business_layer
                    
                 case enMode.enUpdate:
                 {
-                        Console.WriteLine("update not implemented yet");
+                    Console.WriteLine("update not implemented yet");
                         return (false);
                 }
                     
@@ -106,6 +106,18 @@ namespace dvld_business_layer
         public static DataTable getSchemableColumn()
         {
             return (clsPeopleDataAccess.GetSchemableColumn());
+        }
+
+        public static bool GetInfoById( int Id, ref string FirstName, ref string LastName, ref  string SecondName,
+                   ref  string ThirdName,ref string Phone,ref string Email,ref DateTime DateOfBirth,ref int gendor, ref string Address, ref string ImagePath,ref int CountryId,ref string NationalNo)
+        {
+            return (clsPeopleDataAccess.GetPeopleById(Id, ref FirstName, ref LastName,ref SecondName,
+                   ref  ThirdName,ref Phone, ref Email,ref  DateOfBirth,ref  gendor, ref Address,ref  ImagePath, ref CountryId,ref  NationalNo));
+        }
+
+        public static bool  DeletePeople (int Id)
+        {
+            return (clsPeopleDataAccess.DeletePeople(Id));
         }
     }
 }

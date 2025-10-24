@@ -267,5 +267,15 @@ namespace dvld_presantation_layer
             ImagePath = null;
             pictureBoxImage.Image = null;
         }
+
+        private void ComboBoxCountry_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void ComboBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

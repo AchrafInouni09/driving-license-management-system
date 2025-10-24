@@ -50,7 +50,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.rbMale = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
             this.label55 = new System.Windows.Forms.Label();
             this.txtBoxPhone = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -272,16 +272,16 @@
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbFemale
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(222, 96);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 20);
-            this.radioButton2.TabIndex = 28;
-            this.radioButton2.Text = "Female";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFemale.Location = new System.Drawing.Point(222, 96);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(77, 20);
+            this.rbFemale.TabIndex = 28;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
             // 
             // label55
             // 
@@ -353,11 +353,15 @@
             // 
             // ComboBoxCountry
             // 
+            this.ComboBoxCountry.AllowDrop = true;
+            this.ComboBoxCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxCountry.FormattingEnabled = true;
             this.ComboBoxCountry.Location = new System.Drawing.Point(390, 128);
             this.ComboBoxCountry.Name = "ComboBoxCountry";
             this.ComboBoxCountry.Size = new System.Drawing.Size(99, 21);
             this.ComboBoxCountry.TabIndex = 36;
+            this.ComboBoxCountry.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCountry_SelectedIndexChanged);
+            this.ComboBoxCountry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBoxCountry_KeyPress);
             // 
             // label8
             // 
@@ -481,7 +485,7 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.txtBoxPhone);
             this.Controls.Add(this.label55);
-            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox3);
@@ -522,13 +526,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtBoxFirstName;
-        private System.Windows.Forms.TextBox txtBoxSecondName;
-        private System.Windows.Forms.TextBox txtBoxThirdName;
-        private System.Windows.Forms.TextBox txtBoxLastName;
-        private System.Windows.Forms.TextBox txtBoxEmail;
-        private System.Windows.Forms.TextBox txtBoxAddress;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -537,25 +534,19 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDateOfBirdth;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RadioButton rbMale;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox txtBoxPhone;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox ComboBoxCountry;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBoxImage;
         private System.Windows.Forms.LinkLabel linklabelSetImage;
         private System.Windows.Forms.LinkLabel linkLabelRemovePic;
         private System.Windows.Forms.Button btmclose;
@@ -563,5 +554,17 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         public System.Windows.Forms.TextBox txtBoxNationalId;
         public System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.TextBox txtBoxFirstName;
+        public System.Windows.Forms.TextBox txtBoxSecondName;
+        public System.Windows.Forms.TextBox txtBoxThirdName;
+        public System.Windows.Forms.TextBox txtBoxLastName;
+        public System.Windows.Forms.TextBox txtBoxEmail;
+        public System.Windows.Forms.TextBox txtBoxAddress;
+        public System.Windows.Forms.DateTimePicker dateTimePickerDateOfBirdth;
+        public System.Windows.Forms.RadioButton rbMale;
+        public System.Windows.Forms.RadioButton rbFemale;
+        public System.Windows.Forms.TextBox txtBoxPhone;
+        public System.Windows.Forms.ComboBox ComboBoxCountry;
+        public System.Windows.Forms.PictureBox pictureBoxImage;
     }
 }

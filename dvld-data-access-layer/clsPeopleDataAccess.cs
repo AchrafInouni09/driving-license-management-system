@@ -8,6 +8,7 @@ using dvld_database_access_parameter;
 using System.Data.Sql;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
 
 namespace dvld_data_access_layer
 {
@@ -179,6 +180,88 @@ namespace dvld_data_access_layer
                 cnx.Close();
             }
             return dt;
+        }
+
+       public static bool   GetPeopleById(int Id, ref string FirstName, ref string LastName, ref string SecondName,
+                    ref string ThirdName, ref string Phone,ref string Email,ref DateTime DateOfBirth, 
+                   ref int gendor,ref string Address,ref string ImagePath, ref int CountryId, ref string NationalNo)
+        {
+            SqlConnection cnx = new SqlConnection(clsdvld_database_access_parameter.ConnectionString);
+
+            string query = "Select * from People where PersonID=@Id";
+
+            SqlCommand cmd = new SqlCommand(query, cnx);
+
+
+            cmd.Parameters.AddWithValue("@Id", Id);
+
+            bool isfound = false;
+
+            try
+            {
+                cnx.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isfound = true;
+                    FirstName = (string)reader["FirstName"];
+                    LastName = (string)reader["LastName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = (string)reader["ThirdName"];
+                    Phone = (string)reader["Phone"];
+                    Email = (string)reader["Email"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    int.TryParse(reader["Gendor"].ToString(), out gendor);
+                    Address = (string)reader["Address"];
+                    ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"]: null;
+                    NationalNo = (string)reader["NationalNo"];
+                    int.TryParse(reader["NationalityCountryId"].ToString(), out  CountryId);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine ("exception catched " + e.Message);
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return (isfound);
+        }
+
+        public static bool DeletePeople (int PeopleId)
+        {
+            SqlConnection cnx = new SqlConnection(clsdvld_database_access_parameter.ConnectionString);
+
+            string query = "Delete from People where PersonID=@PersonId";
+
+            SqlCommand cmd = new SqlCommand(query, cnx);
+
+            int rowaffected = 0;
+
+            cmd.Parameters.AddWithValue("@PersonID", PeopleId);
+
+            try
+            {
+                cnx.Open();
+                rowaffected = cmd.ExecuteNonQuery();
+
+                cnx.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("exception : " + e.Message);
+                rowaffected = 0;
+            }
+            finally
+            {
+                cnx.Close();
+            }
+
+            return (rowaffected > 0);
         }
     }
 }

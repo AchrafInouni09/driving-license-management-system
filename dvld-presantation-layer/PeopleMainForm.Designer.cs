@@ -40,8 +40,14 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btmAddPeople = new System.Windows.Forms.Button();
             this.lblnbrecords = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddNewPersonMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPersonMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -72,6 +78,8 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(734, 190);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // btmClose
             // 
@@ -109,7 +117,7 @@
             this.comboBoxFilter.Name = "comboBoxFilter";
             this.comboBoxFilter.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFilter.TabIndex = 7;
-            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_SelectedIndexChanged);
+            this.comboBoxFilter.TextChanged += new System.EventHandler(this.comboBoxFilter_TextChanged);
             // 
             // imageList1
             // 
@@ -137,6 +145,48 @@
             this.lblnbrecords.TabIndex = 9;
             this.lblnbrecords.Text = "#";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddNewPersonMenu,
+            this.editPersonMenu,
+            this.deletePersonToolStripMenuItem,
+            this.showDetailsToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            // 
+            // AddNewPersonMenu
+            // 
+            this.AddNewPersonMenu.Image = ((System.Drawing.Image)(resources.GetObject("AddNewPersonMenu.Image")));
+            this.AddNewPersonMenu.Name = "AddNewPersonMenu";
+            this.AddNewPersonMenu.Size = new System.Drawing.Size(162, 22);
+            this.AddNewPersonMenu.Text = "Add New Person";
+            this.AddNewPersonMenu.Click += new System.EventHandler(this.heyToolStripMenuItem_Click);
+            // 
+            // editPersonMenu
+            // 
+            this.editPersonMenu.Image = ((System.Drawing.Image)(resources.GetObject("editPersonMenu.Image")));
+            this.editPersonMenu.Name = "editPersonMenu";
+            this.editPersonMenu.Size = new System.Drawing.Size(162, 22);
+            this.editPersonMenu.Text = "Edit Person";
+            this.editPersonMenu.Click += new System.EventHandler(this.detailsToolStripMenuItem_Click);
+            // 
+            // deletePersonToolStripMenuItem
+            // 
+            this.deletePersonToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deletePersonToolStripMenuItem.Image")));
+            this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
+            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deletePersonToolStripMenuItem.Text = "Delete Person";
+            this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetailsToolStripMenuItem.Image")));
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            // 
             // PeopleMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +209,7 @@
             this.Load += new System.EventHandler(this.PeopleMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +227,10 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btmAddPeople;
         private System.Windows.Forms.Label lblnbrecords;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem AddNewPersonMenu;
+        private System.Windows.Forms.ToolStripMenuItem editPersonMenu;
+        private System.Windows.Forms.ToolStripMenuItem deletePersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
     }
 }
