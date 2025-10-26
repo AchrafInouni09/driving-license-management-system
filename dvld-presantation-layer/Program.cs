@@ -16,7 +16,15 @@ namespace dvld_presantation_layer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            using (var LoginForm = new LoginForm())
+            {
+                if (LoginForm.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Run(new MainForm());
+                }
+            }
+            
             //Application.Run(new adddeletepeopleform());
         }
     }

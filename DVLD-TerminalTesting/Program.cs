@@ -46,6 +46,17 @@ namespace DVLD_TerminalTesting
                 Console.WriteLine("error in update");
             }
 
+
+
+            if (clsUsersDataAccess.Find ("Msaqer77", "1234"))
+            {
+                Console.WriteLine("yes found");
+
+            }
+
+            else
+                Console.WriteLine("not found");
+
             //string Name="";
             //int Id = 90;
 

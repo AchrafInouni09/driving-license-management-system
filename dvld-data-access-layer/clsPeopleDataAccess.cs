@@ -118,7 +118,7 @@ namespace dvld_data_access_layer
             {
                 cnx.Open();
 
-                 rowaffected = sqlcmd.ExecuteNonQuery();
+                rowaffected = sqlcmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -129,7 +129,7 @@ namespace dvld_data_access_layer
                 cnx.Close();
             }
 
-            return ( rowaffected > 0);
+            return (rowaffected > 0);
         }
         public static DataTable GetAllPeoples()
         {
