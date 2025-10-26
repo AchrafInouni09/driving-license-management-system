@@ -78,7 +78,7 @@ namespace dvld_presantation_layer
             return (true);
         }
 
-        
+
         private void closecontrolevent(object sender)
         {
             this.Close();
@@ -90,7 +90,7 @@ namespace dvld_presantation_layer
             try
             {
 
-                if (clsPeople.IsCinExist(NationalNo))
+                if (clsPeople.IsCinExist(NationalNo) && _mode == enmode.enAdd)
                 {
                     peopleInfoUsercontrol1.errorProvider1.SetError(peopleInfoUsercontrol1.txtBoxNationalId, "National No Already Found");
                     return;
@@ -100,29 +100,52 @@ namespace dvld_presantation_layer
                     peopleInfoUsercontrol1.errorProvider1.SetError(peopleInfoUsercontrol1.txtBoxNationalId, "");
                 }
 
-                _people = new clsPeople();
 
-                _people._FirstName = FirstName;
-                _people._LastName = LastName;
-                _people._ThirdName = ThirdName;
-                _people._Address = Address;
-                _people._SecondName = SecondName;
-                _people._DateOfBirth = DateOfBirdth;
-                _people._Phone = Phone;
-                _people._ImagePath = ImagePath;
-                _people._NationalNo = NationalNo;
-                _people._CountryId = CountryId;
-                _people._gendor = Gendor;
-                _people._Email = Email;
 
-                if (_people.Save())
+                if (_mode == enmode.enAdd)
                 {
-                    FinishSave?.Invoke(sender, true);
+                    _people = new clsPeople();
+
+                    _people._FirstName = FirstName;
+                    _people._LastName = LastName;
+                    _people._ThirdName = ThirdName;
+                    _people._Address = Address;
+                    _people._SecondName = SecondName;
+                    _people._DateOfBirth = DateOfBirdth;
+                    _people._Phone = Phone;
+                    _people._ImagePath = ImagePath;
+                    _people._NationalNo = NationalNo;
+                    _people._CountryId = CountryId;
+                    _people._gendor = Gendor;
+                    _people._Email = Email;
+
+                    if (_people.Save())
+                    {
+                        FinishSave?.Invoke(sender, true);
+                    }
+                    else
+                    {
+                        FinishSave?.Invoke(sender, false);
+                    }
                 }
-                else
+
+                else if (_mode == enmode.enUpdate)
                 {
-                    FinishSave?.Invoke(sender, false);
+                    _people = new clsPeople(this._id, FirstName, LastName, SecondName, ThirdName, Phone, Email, DateOfBirdth, Gendor, Address, ImagePath, CountryId, NationalNo);
+
+
+                    if (_people.Save())
+                    {
+                        FinishSave?.Invoke(sender, true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("cannot save update ");
+                        FinishSave?.Invoke(sender, false);
+                    }
                 }
+
+
             }
             catch (Exception e)
             {

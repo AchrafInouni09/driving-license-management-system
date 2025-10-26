@@ -18,7 +18,7 @@ namespace DVLD_TerminalTesting
             string Email = ""; DateTime DateOfBirth = DateTime.Today.AddYears(-18);
             int gendor = -1; string Address = ""; string ImagePath = ""; int CountryId = -1; string NationalNo = "";
 
-            int id = 2026;
+            int id = 1024;
 
             if (clsPeopleDataAccess.GetPeopleById(id, ref FirstName, ref LastName, ref SecondName,
                     ref ThirdName, ref Phone, ref Email, ref DateOfBirth, ref gendor, ref Address, ref ImagePath, ref CountryId, ref NationalNo))
@@ -30,6 +30,20 @@ namespace DVLD_TerminalTesting
             else
             {
                 Console.WriteLine("badly");
+            }
+
+            FirstName = "siucuiwcw";
+
+            if (clsPeopleDataAccess.Update_Person(id,  FirstName,  LastName,  SecondName,
+                     ThirdName,   Email, Phone, Address , CountryId , DateOfBirth,  ImagePath,   NationalNo, gendor))
+            {
+
+                Console.WriteLine(CountryId);
+                Console.WriteLine(NationalNo);
+            }
+            else
+            {
+                Console.WriteLine("error in update");
             }
 
             //string Name="";

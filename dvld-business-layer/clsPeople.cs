@@ -17,6 +17,14 @@ namespace dvld_business_layer
             return (this._Id != -1);
         }
 
+        
+
+        private bool _Update_Person()
+        {
+            return (clsPeopleDataAccess.Update_Person(this._Id,this._FirstName, this._LastName, this._SecondName, this._ThirdName, this._Email, this._Phone,
+                this._Address, this._CountryId, this._DateOfBirth, this._ImagePath, this._NationalNo, this._gendor));
+        }
+
 
         public clsPeople()
         {
@@ -32,17 +40,21 @@ namespace dvld_business_layer
             _mode = enMode.enAdd;
         }
 
-        public clsPeople(int Id, string FirstName, string LastName, string SecondName, string ThirdName, string Phone, string Email, DateTime DateOfBirth, int gendor, string Address, string ImagePath, int CountryId)
+        public clsPeople(int Id, string FirstName, string LastName, string SecondName, string ThirdName, string Phone, string Email, DateTime DateOfBirth, int gendor, string Address, string ImagePath, int CountryId, string NationalNo)
         {
             _FirstName = FirstName;
             _LastName = LastName;
             _SecondName = SecondName;
             _ThirdName = ThirdName;
+            _DateOfBirth = DateOfBirth;
+            _Phone = Phone;
+            _gendor = gendor;
             _Id = Id;
             _Email = Email;
             _CountryId = CountryId;
             _Address = Address;
             _ImagePath = ImagePath;
+            _NationalNo = NationalNo;
             _mode = enMode.enUpdate;
         }
 
@@ -85,18 +97,21 @@ namespace dvld_business_layer
                 {
                         if (_Add_New_Person())
                         {
+                            _mode = enMode.enUpdate;
                             return (true);
                         }
                         else
                             return (false);
                 }
-                   
+
                 case enMode.enUpdate:
-                {
-                    Console.WriteLine("update not implemented yet");
+                    {
+                        if (_Update_Person())
+                            return (true);
+                        
                         return (false);
-                }
-                    
+                    }
+
             }
 
             return (false);

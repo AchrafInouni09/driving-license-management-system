@@ -28,11 +28,15 @@ namespace dvld_presantation_layer
         private string last_selected_item;
         private string  selected_item;
 
+
+
         private void _Refreash_form()
         {
             dt = clsPeople.GetAllPeoples();
             dataGridView1.DataSource = dt;
             lblnbrecords.Text = dataGridView1.RowCount.ToString();
+            dataGridView1.AllowUserToAddRows = false;
+            // remove free ones;
         }
 
         private bool _Load_Filer_combo()
@@ -169,6 +173,8 @@ namespace dvld_presantation_layer
                     return;
 
                 frm = new adddeletepeopleform(PeopleId);
+
+                //MessageBox.Show(PeopleId.ToString ());
 
 
                 frm.MdiParent = this.MdiParent;
